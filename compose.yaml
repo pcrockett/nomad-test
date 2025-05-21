@@ -1,0 +1,8 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json
+
+services:
+  server:
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:${NOMAD_PORT}:4646"

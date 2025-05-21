@@ -1,0 +1,4 @@
+# shellcheck shell=bash
+strict_env
+
+export NOMAD_PORT=4646
