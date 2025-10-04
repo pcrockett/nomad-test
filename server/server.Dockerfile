@@ -12,11 +12,6 @@ mkdir --parent "${DATA_DIR}" && chown -R "${USERNAME}:${USERNAME}" "${DATA_DIR}"
 
 USER ${USERNAME}
 WORKDIR ${WORK_DIR}
+COPY --chown=${USERNAME}:${USERNAME} server.conf.hcl .
 
-CMD [ \
-  "/usr/sbin/nomad", "agent", \
-  "-server", \
-  "-bind", "0.0.0.0", \
-  "-data-dir", "/opt/nomad", \
-  "-bootstrap-expect", "1" \
-]
+CMD ["/usr/sbin/nomad", "agent", "-config=server.conf.hcl"]

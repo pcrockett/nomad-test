@@ -3,7 +3,7 @@
 services:
   server:
     build:
-      context: .
+      context: server
       dockerfile: server.Dockerfile
     ports:
       - "127.0.0.1:${NOMAD_PORT}:4646"
@@ -12,7 +12,7 @@ services:
     depends_on:
       - server
     build:
-      context: .
+      context: client
       dockerfile: client.Dockerfile
     # nomad clients run as root, but they create cgroups to do their dirty work
     # so we need to give the container permission to do that stuff

@@ -1,7 +1,7 @@
 IMAGE_NAME = nomad-test
 
 shell:
-	docker build --tag "$(IMAGE_NAME)" .
+	docker build --file client/client.Dockerfile --tag "$(IMAGE_NAME)" client
 	docker run --rm -it "$(IMAGE_NAME)" /bin/bash
 .PHONY: shell
 

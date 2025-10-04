@@ -7,11 +7,6 @@ ARG DATA_DIR=/opt/nomad
 
 RUN mkdir "${WORK_DIR}" "${DATA_DIR}"
 WORKDIR ${WORK_DIR}
+COPY --chown=root:root client.conf.hcl .
 
-CMD [ \
-  "/usr/sbin/nomad", "agent", \
-  "-client", \
-  "-bind", "0.0.0.0", \
-  "-data-dir", "/opt/nomad", \
-  "-servers", "server:4647" \
-]
+CMD ["/usr/sbin/nomad", "agent", "-config=client.conf.hcl"]
