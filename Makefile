@@ -1,4 +1,5 @@
 IMAGE_NAME = nomad-test
+NOMAD_PORT ?= 4646
 
 shell:
 	docker build --file client/client.Dockerfile --tag "$(IMAGE_NAME)" client
@@ -18,5 +19,5 @@ down:
 .PHONY: down
 
 ui:
-	xdg-open "http://localhost:${NOMAD_PORT}/ui/jobs"
+	xdg-open "http://localhost:$(NOMAD_PORT)/ui/jobs"
 .PHONY: ui

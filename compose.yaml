@@ -6,7 +6,7 @@ services:
       context: server
       dockerfile: server.Dockerfile
     ports:
-      - "127.0.0.1:${NOMAD_PORT}:4646"
+      - "127.0.0.1:${NOMAD_PORT:-4646}:4646"
 
   client:
     depends_on:
